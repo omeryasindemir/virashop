@@ -4,7 +4,9 @@ import cv2
 import numpy as np
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Maksimum 16 MB
 CORS(app)  # Bu satır tüm orijinlere izin verir
+
 
 @app.route('/process-image', methods=['POST'])
 def process_image():
